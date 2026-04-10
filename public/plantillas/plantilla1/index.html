@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym PowerFit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: #fff;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: #555;
+    }
+    .hero {
+      background: url('gym-banner.jpg') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .section {
+      padding: 40px;
+      text-align: center;
+    }
+    .section h2 {
+      margin-bottom: 20px;
+    }
+    .services {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin: 10px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Gym PowerFit</h1>
+    <p>Tu fuerza, tu estilo de vida</p>
+  </header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#planes">Planes</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="hero">
+    ¡Entrena con nosotros!
+  </div>
+
+  <section id="servicios" class="section">
+    <h2>Servicios</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Musculación</h3>
+        <p>Equipos modernos y entrenadores expertos.</p>
+      </div>
+      <div class="card">
+        <h3>Cardio</h3>
+        <p>Cintas, bicicletas y clases dinámicas.</p>
+      </div>
+      <div class="card">
+        <h3>Crossfit</h3>
+        <p>Rutinas intensas para desafiar tus límites.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="planes" class="section">
+    <h2>Planes</h2>
+    <p>Mensual, trimestral y anual con descuentos especiales.</p>
+  </section>
+
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>📍 Av. Principal #123, El Alto</p>
+    <p>📞 789-456-123</p>
+    <p>✉️ contacto@gympowerfit.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Gym PowerFit - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
