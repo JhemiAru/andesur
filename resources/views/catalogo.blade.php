@@ -77,12 +77,21 @@
     </div>
 
     <!-- BUSCADOR -->
-    <input type="text" id="buscador" class="form-control mb-4" placeholder="Buscar plantilla...">
+    <input type="text" id="buscador" class="form-control mb-3" placeholder="Buscar plantilla...">
+
+    <!-- CATEGORÍAS -->
+    <div class="mb-4 text-center">
+        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('todas')">Todas</button>
+        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('restaurante')">Restaurantes</button>
+        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('tienda')">Tiendas</button>
+        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('servicio')">Servicios</button>
+      
+    </div>
 
     <!-- CATÁLOGO -->
     <div class="row" id="contenedor">
         @foreach($plantillas as $p)
-            <div class="col-md-4 plantilla-item">
+            <div class="col-md-4 plantilla-item" data-categoria="{{ $p->categoria }}">
                 <div class="card shadow mb-4">
 
                     <img src="{{ asset('imagenes/'.$p->imagen) }}">
@@ -90,6 +99,8 @@
                     <div class="card-body text-center">
                         <h5 class="nombre">{{ $p->nombre }}</h5>
                         <p>{{ $p->descripcion }}</p>
+
+                        <span class="badge bg-primary mb-2">{{ $p->categoria }}</span><br>
 
                         <button class="btn btn-preview mb-2" onclick="verPlantilla('{{ $p->carpeta }}')">
                             <i class="fa fa-eye"></i> Vista previa
@@ -131,6 +142,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+// VISTA PREVIA
 function verPlantilla(carpeta) {
     let url = "/plantillas/" + carpeta + "/index.html";
     document.getElementById("framePlantilla").src = url;
@@ -149,6 +161,21 @@ document.getElementById("buscador").addEventListener("keyup", function() {
         item.style.display = nombre.includes(filtro) ? "" : "none";
     });
 });
+
+// FILTRO POR CATEGORÍA
+function filtrarCategoria(categoria) {
+    let items = document.querySelectorAll(".plantilla-item");
+
+    items.forEach(item => {
+        let cat = item.getAttribute("data-categoria");
+
+        if (categoria === "todas" || cat === categoria) {
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
 </script>
 
 </body>
