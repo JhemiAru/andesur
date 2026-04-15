@@ -81,11 +81,26 @@
 
     <!-- CATEGORÍAS -->
     <div class="mb-4 text-center">
-        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('todas')">Todas</button>
-        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('restaurante')">Restaurantes</button>
-        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('tienda')">Tiendas</button>
-        <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('servicio')">Servicios</button>
-      
+   <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('todas')">Todas</button>
+
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Diseño artístico')">Diseño artístico</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Tecnología')">Tecnología</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Derecho empresarial')">Derecho</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Comida y restaurante')">Restaurantes</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Arquitectura y Edificación')">Arquitectura</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Belleza de la moda')">Moda</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Educación')">Educación</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Industrial')">Industrial</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Interior')">Interior</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Automóviles y transporte')">Autos</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Viajes y hoteles')">Viajes</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Música y entretenimiento')">Música</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Deportes')">Deportes</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Rebaja')">Ofertas</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Medicina y ciencia')">Medicina</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Naturaleza')">Naturaleza</button>
+    <button class="btn btn-outline-primary m-1" onclick="filtrarCategoria('Bienes raíces')">Bienes raíces</button>
+
     </div>
 
     <!-- CATÁLOGO -->
