@@ -4,51 +4,46 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Plantilla;
+use App\Models\Compra;
+use Illuminate\Support\Facades\Auth;
 
 class PlantillaController extends Controller
 {
-    // Mostrar catálogo
+    /**
+     * Mostrar catálogo de plantillas
+     */
     public function index()
     {
         $plantillas = Plantilla::all();
-        return view('catalogo', compact('plantillas'));
+
+        return view('plantillas.index', compact('plantillas'));
     }
 
-    // Ver plantilla
-    public function ver($id)
+    /**
+     * Mostrar una plantilla específica
+     */
+    public function show($id)
     {
         $plantilla = Plantilla::findOrFail($id);
-        return redirect('/plantillas/' . $plantilla->carpeta . '/index.html');
-    }
 
-    // Mostrar formulario
-    public function crear()
-    {
-        return view('crear');
-    }
+        // 🔒 PROTEGER PLANTILLAS PREMIUM
+        if ($plantilla->tipo === 'premium') {
 
-    // Guardar nueva plantilla
-    public function guardar(Request $request)
-    {
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'imagen' => 'required|image',
-            'carpeta' => 'required'
-        ]);
+            // Si no está logueado
+            if (!Auth::check()) {
+                return redirect('/login')->with('success', 'Debes iniciar sesión para acceder');
+            }
 
-        // Guardar imagen
-        $imagen = time() . '.' . $request->imagen->extension();
-        $request->imagen->move(public_path('imagenes'), $imagen);
+            // Verificar si ya compró
+            $comprada = Compra::where('user_id', Auth::id())
+                ->where('plantilla_id', $id)
+                ->exists();
 
-        // Guardar en BD
-        Plantilla::create([
-            'nombre' => $request->nombre,
-            'descripcion' => $request->descripcion,
-            'imagen' => $imagen,
-            'carpeta' => $request->carpeta
-        ]);
+            if (!$comprada) {
+                return redirect('/')->with('success', 'Debes comprar esta plantilla');
+            }
+        }
 
-        return redirect('/')->with('success', 'Plantilla agregada');
+        return view('plantillas.show', compact('plantilla'));
     }
 }

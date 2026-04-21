@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevStudio - Portafolio Creativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #050505; color: #e2e8f0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .gradient-text { 
+            background: linear-gradient(135deg, #0056FF 0%, #FF6A00 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; }
+        .glow-circle {
+            position: absolute; width: 400px; height: 400px; background: #0056FF; border-radius: 50%;
+            filter: blur(150px); opacity: 0.3; top: -100px; right: -100px; z-index: -1;
+        }
+        .glow-circle-2 {
+            position: absolute; width: 300px; height: 300px; background: #FF6A00; border-radius: 50%;
+            filter: blur(150px); opacity: 0.2; bottom: 10%; left: -100px; z-index: -1;
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px; padding: 2rem; transition: 0.4s; backdrop-filter: blur(10px);
+        }
+        .project-card:hover {
+            transform: translateY(-10px); border-color: rgba(255, 106, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 86, 255, 0.1);
+        }
+        .tag { background: rgba(0, 86, 255, 0.2); color: #80aaff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-right: 5px;}
+    </style>
+</head>
+<body>
+    <div class="glow-circle"></div>
+    <div class="glow-circle-2"></div>
+
+    <div class="container">
+        <nav class="py-4 d-flex justify-content-between align-items-center">
+            <div class="fw-bold fs-4">Dev<span style="color:#FF6A00;">Studio</span></div>
+            <a href="mailto:hola@devstudio.com" class="text-white text-decoration-none border-bottom border-primary pb-1">Hablemos</a>
+        </nav>
+
+        <header class="hero row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-2 fw-bolder mb-4">Creamos experiencias digitales <br><span class="gradient-text">que dejan marca.</span></h1>
+                <p class="lead text-secondary w-75 mb-5">Diseño UI/UX y desarrollo full-stack para marcas que buscan destacar en la web moderna.</p>
+                <button class="btn btn-primary btn-lg rounded-pill px-5 py-3" style="background-color: #0056FF; border:none;" id="btn-work">Ver Trabajos</button>
+            </div>
+        </header>
+
+        <section class="py-5" id="trabajos">
+            <h3 class="mb-5 fw-bold">Proyectos Recientes</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="mb-3">
+                            <span class="tag">Laravel 10</span><span class="tag">Vue.js</span>
+                        </div>
+                        <h4 class="fw-bold">E-commerce Multi-tenant</h4>
+                        <p class="text-secondary mt-2">Plataforma escalable para gestión de múltiples tiendas desde un solo panel de administración.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="mb-3">
+                            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JS</span>
+                        </div>
+                        <h4 class="fw-bold">Catálogo Dinámico UI</h4>
+                        <p class="text-secondary mt-2">Interfaz de alto impacto visual para previsualización interactiva de plantillas web.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('btn-work').addEventListener('click', () => {
+            document.getElementById('trabajos').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
